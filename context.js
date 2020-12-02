@@ -20,8 +20,8 @@
 var user = {
   username: 'bencallis',
   email: 'bencallis1@gmail.com',
-  getUserName:  function (){
-    return this.username;
+  getUserName: function (){
+    return (this.username)
   }
 };
 
@@ -43,7 +43,7 @@ function Animal(name, species, food) {
   }
 }
 
-var animal1 = new Animal(lion, cat, gazelle);
+var animal1 = new Animal('lion', 'cat', 'gazelle');
 
 
 ////////// PROBLEM 3 //////////

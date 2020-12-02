@@ -35,8 +35,7 @@ function Employee(name, email, hireDate) {
     Invoke the constructor function above and pass in 'Bob', 'bob@gmail.com', and '01-02-98' as arguments.
     Assign the result of the invocation to a variable called bob.
   */
-  
-  var bob = Employee ('Bob', 'bob@gmail.com', '01-02-98')
+  const bob = new Employee ('Bob', 'bob@gmail.com', '01-02-98')
   
   ////////// PROBLEM 3 //////////
   
@@ -66,6 +65,7 @@ function Employee(name, email, hireDate) {
   this.move = 0;
   this.moveCar = function(){
     this.move = this.move+10
+    return this.move
   }
  }
   
@@ -102,13 +102,12 @@ function Employee(name, email, hireDate) {
     this.name = name;
     this.age = age;
     this.email = email;
-    this.savedPosts = [{id, title, rating},{id, title, rating}];
+    this.savedPosts = savedPosts;
   }
-
+  
   User.prototype.addSavedPost = function (id, title, rating){
-    this.savedPosts = [{id, title, rating}];
+    this.savedPosts = [...this.savedPosts, {id, title, rating}];
     return this.savedPosts
-
   }
   
   ////////// PROBLEM 6 //////////
@@ -131,12 +130,11 @@ function Employee(name, email, hireDate) {
   // You will continue to use the constructor function you created in problem 5.
   // Write a prototype method for the User constructor function named changePostRating that will take in two number parameters. The first will be an id (a number) and the second will be the new rating (a number). Use the id to find the matching object in the savedPosts array. Once you find the matching object, update it's rating score with the new rating parameter.
   
-  User.prototype.changePostRating = function (id,nrating){
-    if (id===this.savedPosts.id){
-      this.savedPosts = {id, title, nrating};
-      return this.savedPosts
-    }
-
-
+  User.prototype.changePostRating = function (id,newrating){
+    var post = this.savedPosts.filter((element, index, array)=>{
+        return id === element.id
+    })
+      post[0].rating=newrating;
+      return post[0]
   }
   
