@@ -20,7 +20,7 @@
 var user = {
   username: 'bencallis',
   email: 'bencallis1@gmail.com',
-  getUserName: function (){
+  getUsername: function (){
     return (this.username)
   }
 };
@@ -75,7 +75,7 @@ function whatIsThis() {
 }
 
 // uncomment the line below and tell us what the context of "this" is for whatIsThis()
-let context1 = product
+let context1 = 'window'
 
 let product = {
   name: 'snake plant',
@@ -87,7 +87,7 @@ let product = {
 let func = whatIsThis.bind(product)
 
 // uncomment the line below and tell us what the context of "this" is when we invoke func
-let context2 = product;
+let context2 = product
 
 let vacation = {
   location: 'Hawaii',
@@ -113,4 +113,4 @@ function Family(numParents, numKids, numPets) {
 let family1 = new Family(2, 4, 1)
 
 // uncomment the line below and tell us what the context of "this" is for the instance of Family created above.
-let context4 = new Family;
+let context4 = family1;
